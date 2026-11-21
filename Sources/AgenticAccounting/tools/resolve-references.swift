@@ -5,7 +5,7 @@ import Macros
 import Schema
 
 public extension Accounting.Tools {
-    @Tool("accounting_resolve_references")
+    @Tool("resolve_references")
     struct ResolveReferences: Tool {
         @JSONSchema
         public struct Reference: HashableSource {

@@ -7,7 +7,7 @@ import Schema
 import Search
 
 public extension Accounting.Tools {
-    @Tool("accounting_search_entities")
+    @Tool("search_entities")
     struct SearchEntities: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -193,7 +193,7 @@ public extension Accounting.Tools {
         }
     }
 
-    @Tool("accounting_read_entities")
+    @Tool("read_entities")
     struct ReadEntities: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -336,7 +336,7 @@ public extension Accounting.Tools {
         }
     }
 
-    @Tool("accounting_search_accounts")
+    @Tool("search_accounts")
     struct SearchAccounts: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -509,7 +509,7 @@ public extension Accounting.Tools {
         }
     }
 
-    @Tool("accounting_read_accounts")
+    @Tool("read_accounts")
     struct ReadAccounts: Tool {
         @JSONSchema
         public struct Input: HashableSource {

@@ -4,7 +4,7 @@ import Macros
 import Schema
 
 public extension Accounting.Tools {
-    @Tool("accounting_entry_context")
+    @Tool("entry_context")
     struct EntryContext: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -78,12 +78,12 @@ public extension Accounting.Tools {
                 referenceConvention: "Entries use existing account identifiers and 1–3 segment entity keys. Resolve candidates before drafting; a search hit is not validation.",
                 transactionReferencesOptional: true,
                 suggestedWorkflow: [
-                    "accounting_next_entry_ids",
-                    "accounting_find_references",
-                    "accounting_resolve_references",
-                    "accounting_validate_entry_draft",
-                    "mutate",
-                    "accounting_compile_entries (omit period, anchor and toDate for full-ledger verification)"
+                    "accounting_tool_next_entry_ids",
+                    "accounting_tool_find_references",
+                    "accounting_tool_resolve_references",
+                    "accounting_tool_validate_entry_draft",
+                    "io_tool_mutate",
+                    "accounting_tool_compile_entries (omit period, anchor and toDate for full-ledger verification)"
                 ]
             )
         }

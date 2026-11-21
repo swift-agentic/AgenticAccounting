@@ -50,7 +50,7 @@ enum PDFInvoiceSourceVerificationRegression {
         let tool = Accounting.Tools.VerifyPDFInvoiceEvidence()
         try Expect.equal(
             Accounting.Tools.VerifyPDFInvoiceEvidence.definition.identifier.rawValue,
-            "accounting_verify_pdf_invoice_evidence",
+            "accounting_tool_verify_pdf_invoice_evidence",
             "Tool identifier"
         )
         let preflight = try await tool.preflight(input, in: context)

@@ -61,7 +61,7 @@ enum AgenticAccountingTestSuite {
             try Expect.equal(output.metrics.first(where: { $0.key == "operating_margin" })?.value, "0.4", "Operating margin")
             try Expect.equal(output.metrics.first(where: { $0.key == "net_margin" })?.value, "0.2", "Net margin")
             try Expect.equal(output.unavailable.contains("current_ratio"), true, "Unavailable current ratio")
-            try Expect.equal(Accounting.Tools.FinancialRatios.definition.identifier.rawValue, "financial_ratios", "Tool identifier")
+            try Expect.equal(Accounting.Tools.FinancialRatios.definition.identifier.rawValue, "accounting_tool_financial_ratios", "Tool identifier")
         }
 
         Test("absent-and-zero-denominator-ratios-are-not-zero") {
@@ -138,7 +138,7 @@ enum AgenticAccountingTestSuite {
             let preflight = try await tool.preflight(.init(), in: context)
             try Expect.equal(preflight.risk, .observe, "Read-only tool risk")
             try Expect.equal(Accounting.Tools.UsedEntryIDs.definition.identifier.rawValue,
-                             "accounting_used_entry_ids", "Tool identifier")
+                             "accounting_tool_used_entry_ids", "Tool identifier")
             let output = try await tool.call(.init(), in: context)
             try Expect.equal(output.count, 5, "Unique used IDs")
             try Expect.equal(output.minimum, 41, "Minimum ID")
@@ -496,7 +496,7 @@ Test("validate-entry-draft-enforces-access-and-symlinks") {
             try Expect.equal(reviewer.available.tools.members, reviewer.visible.tools.members,
                              "Reviewer visibility cannot expand beyond read-only allowlist")
             try Expect.equal(reviewer.visible.tools.members.contains(where: {
-                $0.rawValue == "mutate"
+                $0.rawValue == "io_tool_mutate"
             }), false, "Reviewer cannot mutate files")
         }
 

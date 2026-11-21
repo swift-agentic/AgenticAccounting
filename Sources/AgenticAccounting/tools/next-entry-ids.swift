@@ -8,7 +8,7 @@ import Schema
 import Workspace
 
 public extension Accounting.Tools {
-    @Tool("accounting_next_entry_ids")
+    @Tool("next_entry_ids")
     struct NextEntryIDs: Tool {
         @JSONSchema
         public struct Input: HashableSource {

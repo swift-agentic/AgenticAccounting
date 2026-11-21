@@ -6,7 +6,7 @@ import Schema
 import Search
 
 public extension Accounting.Tools {
-    @Tool("accounting_find_references")
+    @Tool("find_references")
     struct FindReferences: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -67,7 +67,7 @@ public extension Accounting.Tools {
         public static let purpose = """
         Search project-declared accounts and entities by code, alias, or label.
         Returns bounded ranked candidates, not proof of valid resolution.
-        Follow with accounting_resolve_references before drafting.
+        Follow with accounting_tool_resolve_references before drafting.
         Does not compile accounting entries.
         """
         public static let risk: ActionRisk = .observe

@@ -6,7 +6,7 @@ import Schema
 
 public extension Accounting.Tools {
     /// Performs the PDF read itself; callers cannot supply a forged verification result.
-    @Tool("accounting_verify_pdf_invoice_evidence")
+    @Tool("verify_pdf_invoice_evidence")
     struct VerifyPDFInvoiceEvidence: Tool {
         private typealias Inference = Accounting.Inferences.ExtractPDFInvoice
         private typealias Verifier = PDF.Tools.VerifyTextEvidence

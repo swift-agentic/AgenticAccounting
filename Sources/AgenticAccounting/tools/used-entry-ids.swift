@@ -7,7 +7,7 @@ import Schema
 import Workspace
 
 public extension Accounting.Tools {
-    @Tool("accounting_used_entry_ids")
+    @Tool("used_entry_ids")
     struct UsedEntryIDs: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -55,7 +55,7 @@ public extension Accounting.Tools {
         public static let purpose = """
         Inspect used entry ID ranges and gaps in the active accounting project.
         Read-only; an ID gap is not a reservation or a recommendation to reuse it.
-        Use accounting_next_entry_ids for fresh contiguous ID suggestions.
+        Use accounting_tool_next_entry_ids for fresh contiguous ID suggestions.
         """
         public static let risk: ActionRisk = .observe
         public init() {}

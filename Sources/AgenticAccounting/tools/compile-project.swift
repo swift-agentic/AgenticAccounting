@@ -6,7 +6,7 @@ import Macros
 import Schema
 
 public extension Accounting.Tools {
-    @Tool("accounting_compile_entries")
+    @Tool("compile_entries")
     struct CompileEntries: Tool {
         @JSONSchema
         public struct Input: HashableSource {

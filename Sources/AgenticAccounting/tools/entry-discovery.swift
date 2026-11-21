@@ -7,7 +7,7 @@ import Schema
 import Search
 
 public extension Accounting.Tools {
-    @Tool("accounting_search_entries")
+    @Tool("search_entries")
     struct SearchEntries: Tool {
         @JSONSchema
         public struct Input: HashableSource {
@@ -289,7 +289,7 @@ public extension Accounting.Tools {
         }
     }
 
-    @Tool("accounting_read_entries")
+    @Tool("read_entries")
     struct ReadEntries: Tool {
         @JSONSchema
         public struct Input: HashableSource {

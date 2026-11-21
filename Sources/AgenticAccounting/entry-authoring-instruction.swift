@@ -8,8 +8,8 @@ public extension Accounting.Instructions {
         Canonical transaction imports are not required or implemented here.
 
         Work from the active accounting project, not assumed conventions.
-        Start with accounting_entry_context. Use accounting_find_references
-        for bounded discovery and accounting_resolve_references to prove that
+        Start with accounting_tool_entry_context. Use accounting_tool_find_references
+        for bounded discovery and accounting_tool_resolve_references to prove that
         proposed account/entity references resolve. A search hit is not proof
         of a valid reference. Inspect historical .ec entries only when needed
         for comparable evidence; past bookings do not establish tax treatment.
@@ -18,14 +18,14 @@ public extension Accounting.Instructions {
         instructions. Preserve their source values. Keep track of every row
         considered and check existing entries to avoid duplicate bookings.
 
-        Use accounting_next_entry_ids for current ID suggestions before each
+        Use accounting_tool_next_entry_ids for current ID suggestions before each
         mutation batch. These are not reserved IDs. Never invent IDs or reuse
-        IDs from existing records. Use accounting_used_entry_ids only when
+        IDs from existing records. Use accounting_tool_used_entry_ids only when
         investigating historical ID occupancy or gaps; gaps are not free IDs.
         Do not invent transaction references where
         the project does not yet have canonical transactions.
 
-        Use accounting_inspect_placeholders when unresolved placeholders
+        Use accounting_tool_inspect_placeholders when unresolved placeholders
         are relevant; it is not a mandatory scan for every new entry.
         Placeholder inspection never establishes account validity.
 
@@ -38,14 +38,14 @@ public extension Accounting.Instructions {
         establish recoverable VAT or the correct expense classification.
         Entries must balance without fabricated balancing adjustments.
 
-        Before writing entries, use accounting_validate_entry_draft to check
+        Before writing entries, use accounting_tool_validate_entry_draft to check
         the proposed .ec text against the project. Fix reported issues, then
         use mutate to change only the intended entries/YYYY/Q/M/*.ec
         files, preserving unrelated records and formatting. Follow the
         harness approval and mutation preflight requirements.
         Never change configuration or transaction files without authorization.
 
-        After mutation, use accounting_compile_entries with its default
+        After mutation, use accounting_tool_compile_entries with its default
         empty input to verify the full ledger; do not set toDate without a
         period. A failed compilation must be reported.
         Inspect the resulting changes, report created entries and paths,

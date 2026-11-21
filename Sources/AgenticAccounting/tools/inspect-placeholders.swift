@@ -7,7 +7,7 @@ import Schema
 import Workspace
 
 public extension Accounting.Tools {
-    @Tool("accounting_inspect_placeholders")
+    @Tool("inspect_placeholders")
     struct InspectPlaceholders: Tool {
         @JSONSchema
         public struct Input: HashableSource {

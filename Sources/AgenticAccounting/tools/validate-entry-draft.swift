@@ -5,7 +5,7 @@ import Macros
 import Schema
 
 public extension Accounting.Tools {
-    @Tool("accounting_validate_entry_draft")
+    @Tool("validate_entry_draft")
     struct ValidateEntryDraft: Tool {
         @JSONSchema
         public struct Input: HashableSource {
