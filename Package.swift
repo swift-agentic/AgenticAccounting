@@ -11,9 +11,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/leviouwendijk/Agentic.git", branch: "master"),
-        .package(url: "https://github.com/leviouwendijk/AgenticIO.git", branch: "master"),
-        .package(url: "https://github.com/leviouwendijk/AgenticPDF.git", branch: "master"),
+        .package(url: "https://github.com/swift-agentic/Agentic.git", branch: "master"),
+        .package(url: "https://github.com/swift-agentic/AgenticIO.git", branch: "master"),
+        .package(url: "https://github.com/swift-agentic/AgenticPDF.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Workspace.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Path.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Accounting.git", branch: "master"),
