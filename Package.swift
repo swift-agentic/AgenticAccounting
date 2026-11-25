@@ -16,7 +16,7 @@ let package = Package(
         .package(url: "https://github.com/swift-agentic/AgenticPDF.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Workspace.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Path.git", branch: "master"),
-        .package(url: "https://github.com/leviouwendijk/Accounting.git", branch: "master"),
+        .package(url: "https://github.com/depaix-labs/Accounting.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Search.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Math.git", branch: "master"),
         .package(url: "https://github.com/leviouwendijk/Schema.git", branch: "master"),

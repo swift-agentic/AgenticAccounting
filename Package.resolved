@@ -4,7 +4,7 @@
     {
       "identity" : "accounting",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Accounting.git",
+      "location" : "https://github.com/depaix-labs/Accounting.git",
       "state" : {
         "branch" : "master",
         "revision" : "9351156a3b597231aca909402c875b6573def9fe"
