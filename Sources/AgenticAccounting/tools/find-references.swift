@@ -85,7 +85,7 @@ public extension Accounting.Tools {
             }
         }
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             let kinds = try Self.validate(input)
             let workspace = try AccountingReferenceCatalog.authorize(
                 context, toolName: Self.identifier.rawValue,
@@ -106,7 +106,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             let kinds = try Self.validate(input)
             let catalog = try AccountingReferenceCatalog.load(
                 context, toolName: Self.identifier.rawValue,

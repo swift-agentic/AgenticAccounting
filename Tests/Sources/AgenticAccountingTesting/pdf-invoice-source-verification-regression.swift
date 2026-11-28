@@ -143,7 +143,7 @@ enum PDFInvoiceSourceVerificationRegression {
     private static func makeContext(
         root: URL,
         capabilities: Set<WorkspaceCapability>
-    ) throws -> ToolContext {
+    ) throws -> CapabilityContext {
         let installed = PathAccessRoot(
             id: .project,
             label: "Invoice fixture",
@@ -156,7 +156,7 @@ enum PDFInvoiceSourceVerificationRegression {
             capabilities: capabilities
         )
         let workspace = try Workspace(root: installed, grants: [grant])
-        return ToolContext(workspace: try workspace.context(
+        return CapabilityContext(workspace: try workspace.context(
             execution: .init(io: .blocking, mutations: .immediate)
         ))
     }

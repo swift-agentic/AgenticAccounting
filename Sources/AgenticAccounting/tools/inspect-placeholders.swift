@@ -72,7 +72,7 @@ public extension Accounting.Tools {
         public static let risk: ActionRisk = .observe
         public init() {}
 
-        private static func authorize(_ input: Input, in context: ToolContext) throws {
+        private static func authorize(_ input: Input, in context: CapabilityContext) throws {
             guard (1...500).contains(input.maximumFindings) else { throw Failure.invalidLimit }
             guard let workspace = context.workspace else { throw Failure.workspaceRequired }
             _ = try FileToolAccess.authorize(
@@ -89,7 +89,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             try Self.authorize(input, in: context)
             guard let workspace = context.workspace else { throw Failure.workspaceRequired }
             return .init(
@@ -105,7 +105,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             try Self.authorize(input, in: context)
             guard let workspace = context.workspace else { throw Failure.workspaceRequired }
             let project = EntryCompilerProject(workspace: workspace)

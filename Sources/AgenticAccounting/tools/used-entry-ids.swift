@@ -60,7 +60,7 @@ public extension Accounting.Tools {
         public static let risk: ActionRisk = .observe
         public init() {}
 
-        private static func authorize(_ context: ToolContext) throws {
+        private static func authorize(_ context: CapabilityContext) throws {
             guard let workspace = context.workspace else {
                 throw Failure.workspaceRequired
             }
@@ -82,7 +82,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             try Self.authorize(context)
             guard let workspace = context.workspace else {
                 throw Failure.workspaceRequired
@@ -100,7 +100,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             try Self.authorize(context)
             guard let workspace = context.workspace else {
                 throw Failure.workspaceRequired

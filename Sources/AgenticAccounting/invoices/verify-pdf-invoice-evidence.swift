@@ -96,7 +96,7 @@ public extension Accounting.Tools {
             return Prepared(resolution: resolution, requests: requests)
         }
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             let prepared = try Self.prepare(input)
             let verifier = Verifier()
             var first: ToolPreflight?
@@ -119,7 +119,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             let prepared = try Self.prepare(input)
             let verifier = Verifier()
             var verified: [Verifier.Input.Claim] = []

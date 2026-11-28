@@ -189,7 +189,7 @@ enum AccountingDiscoverySupport {
     }
 
     static func authorize(
-        _ context: ToolContext,
+        _ context: CapabilityContext,
         toolName: String,
         directory: String
     ) throws -> WorkspaceContext {
@@ -216,7 +216,7 @@ enum AccountingDiscoverySupport {
     }
 
     static func preflight(
-        context: ToolContext,
+        context: CapabilityContext,
         identifier: String,
         definition: ToolDefinition,
         directory: String,
@@ -241,7 +241,7 @@ enum AccountingDiscoverySupport {
     }
 
     static func entries(
-        _ context: ToolContext,
+        _ context: CapabilityContext,
         toolName: String
     ) throws -> (records: [Entry], settings: EntryCompilerSettings) {
         let workspace = try authorize(
@@ -265,7 +265,7 @@ enum AccountingDiscoverySupport {
     }
 
     static func transactions(
-        _ context: ToolContext,
+        _ context: CapabilityContext,
         toolName: String
     ) throws -> (records: [Transaction], settings: EntryCompilerSettings) {
         let workspace = try authorize(

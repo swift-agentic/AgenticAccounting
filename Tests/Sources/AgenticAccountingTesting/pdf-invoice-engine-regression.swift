@@ -16,7 +16,7 @@ private enum InvoiceEngineTestFailure: Error {
 }
 
 private struct InvoiceEngineToolAdapter: ProgramToolExecuting {
-    let context: ToolContext
+    let context: CapabilityContext
 
     func execute<Input: Encodable & Sendable, Output: Decodable & Sendable>(
         _ identifier: ToolIdentifier, input: Input, as output: Output.Type
@@ -118,14 +118,14 @@ enum PDFInvoiceEngineRegression {
         try Expect.equal(denied, true, "Source read permission enforced inside program")
     }
 
-    private static func context(root: URL, capabilities: Set<WorkspaceCapability>) throws -> ToolContext {
+    private static func context(root: URL, capabilities: Set<WorkspaceCapability>) throws -> CapabilityContext {
         let root = PathAccessRoot(id: .project, label: "Invoice program fixture",
                                   scope: try PathAccessScope(root: root, policy: .defaults.workspace),
                                   isDefault: true)
         let grant = try WorkspaceGrant(id: WorkspaceGrantIdentifier("invoice-engine-fixture"),
                                        rootIdentifier: .project, capabilities: capabilities)
         let workspace = try Workspace(root: root, grants: [grant])
-        return ToolContext(workspace: try workspace.context(execution: .init(io: .blocking, mutations: .immediate)))
+        return CapabilityContext(workspace: try workspace.context(execution: .init(io: .blocking, mutations: .immediate)))
     }
 
     private static func makePDF(_ pages: [String]) throws -> Data {

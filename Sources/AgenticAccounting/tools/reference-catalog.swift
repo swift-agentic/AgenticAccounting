@@ -15,7 +15,7 @@ struct AccountingReferenceCatalog {
     let entities: EntityStore?
 
     static func authorize(
-        _ context: ToolContext,
+        _ context: CapabilityContext,
         toolName: String,
         accounts: Bool,
         entities: Bool
@@ -61,7 +61,7 @@ struct AccountingReferenceCatalog {
     }
 
     static func load(
-        _ context: ToolContext,
+        _ context: CapabilityContext,
         toolName: String,
         accounts: Bool,
         entities: Bool

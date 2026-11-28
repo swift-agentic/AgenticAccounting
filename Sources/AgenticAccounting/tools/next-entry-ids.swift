@@ -55,7 +55,7 @@ public extension Accounting.Tools {
             }
         }
 
-        private static func authorize(_ context: ToolContext) throws {
+        private static func authorize(_ context: CapabilityContext) throws {
             guard let workspace = context.workspace else {
                 throw Failure.workspaceRequired
             }
@@ -79,7 +79,7 @@ public extension Accounting.Tools {
 
         public func preflight(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> ToolPreflight {
             try Self.validate(input)
             try Self.authorize(context)
@@ -101,7 +101,7 @@ public extension Accounting.Tools {
 
         public func call(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> Output {
             try Self.validate(input)
             try Self.authorize(context)

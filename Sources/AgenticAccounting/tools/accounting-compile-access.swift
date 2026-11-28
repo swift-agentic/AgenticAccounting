@@ -9,7 +9,7 @@ enum AccountingCompileAccess {
         case workspaceRequired
     }
 
-    static func authorize(_ context: ToolContext, toolName: String) throws -> WorkspaceContext {
+    static func authorize(_ context: CapabilityContext, toolName: String) throws -> WorkspaceContext {
         guard let workspace = context.workspace else {
             throw Failure.workspaceRequired
         }

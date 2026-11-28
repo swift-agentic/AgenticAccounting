@@ -162,7 +162,7 @@ public extension Accounting.Tools {
             return .init(has_analysis: true, metrics: metrics, unavailable: unavailable)
         }
 
-        public func preflight(_ input: Input, in _: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in _: CapabilityContext) async throws -> ToolPreflight {
             try Self.validate(input)
             return .init(
                 tool: Self.definition.identifier,
@@ -172,7 +172,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in _: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in _: CapabilityContext) async throws -> Output {
             try Self.evaluate(input)
         }
     }

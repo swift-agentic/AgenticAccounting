@@ -46,7 +46,7 @@ public extension Accounting.Tools {
         public static let risk: ActionRisk = .observe
         public init() {}
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             let workspace = try AccountingReferenceCatalog.authorize(
                 context, toolName: Self.identifier.rawValue,
                 accounts: true, entities: true
@@ -64,7 +64,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             let catalog = try AccountingReferenceCatalog.load(
                 context, toolName: Self.identifier.rawValue,
                 accounts: true, entities: true

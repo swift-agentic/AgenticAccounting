@@ -143,7 +143,7 @@ public extension Accounting.Tools {
             }
         }
 
-        public func preflight(_ input: Input, in context: ToolContext) async throws -> ToolPreflight {
+        public func preflight(_ input: Input, in context: CapabilityContext) async throws -> ToolPreflight {
             let kind = try Self.periodKind(for: input)
             let workspace = try AccountingCompileAccess.authorize(
                 context, toolName: Self.identifier.rawValue
@@ -162,7 +162,7 @@ public extension Accounting.Tools {
             )
         }
 
-        public func call(_ input: Input, in context: ToolContext) async throws -> Output {
+        public func call(_ input: Input, in context: CapabilityContext) async throws -> Output {
             let kind = try Self.periodKind(for: input)
             let workspace = try AccountingCompileAccess.authorize(
                 context, toolName: Self.identifier.rawValue

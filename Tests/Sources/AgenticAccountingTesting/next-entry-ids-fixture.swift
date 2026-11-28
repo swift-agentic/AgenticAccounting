@@ -46,7 +46,7 @@ struct NextEntryIDsWorkspaceFixture {
         )
     }
 
-    func context(capabilities: Set<WorkspaceCapability>) throws -> ToolContext {
+    func context(capabilities: Set<WorkspaceCapability>) throws -> CapabilityContext {
         let rootID = PathAccessRootIdentifier(rawValue: "project")
         let installed = PathAccessRoot(
             id: rootID,
@@ -60,7 +60,7 @@ struct NextEntryIDsWorkspaceFixture {
             capabilities: capabilities
         )
         let workspace = try Workspace(root: installed, grants: [grant])
-        return ToolContext(workspace: try workspace.context(
+        return CapabilityContext(workspace: try workspace.context(
             execution: .init(io: .blocking, mutations: .immediate)
         ))
     }

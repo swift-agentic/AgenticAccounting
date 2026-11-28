@@ -144,7 +144,7 @@ public extension Accounting.Tools {
 
         public func preflight(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> ToolPreflight {
             _ = try Self.amountPredicate(input.amount)
             return try AccountingDiscoverySupport.preflight(
@@ -158,7 +158,7 @@ public extension Accounting.Tools {
 
         public func call(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> Output {
             let loaded = try AccountingDiscoverySupport.transactions(
                 context,
@@ -341,7 +341,7 @@ public extension Accounting.Tools {
 
         public func preflight(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> ToolPreflight {
             _ = try AccountingDiscoverySupport.identifiers(input.ids)
             return try AccountingDiscoverySupport.preflight(
@@ -355,7 +355,7 @@ public extension Accounting.Tools {
 
         public func call(
             _ input: Input,
-            in context: ToolContext
+            in context: CapabilityContext
         ) async throws -> Output {
             let ids = try AccountingDiscoverySupport.identifiers(input.ids)
             let loaded = try AccountingDiscoverySupport.transactions(
